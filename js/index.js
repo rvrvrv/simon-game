@@ -2,14 +2,14 @@
 /* global $ */
 
 $(document).ready(function () {
+	const $count = $('.count');
+	const $cBtn = $('.colorBtn');
 	var powerOn = false;
 	var strictOn = false;
 	var playerTurn = false;
-	var $count = $('.count');
-	var $cBtn = $('.colorBtn');
+	var checked = false;
 	var round = 0;
 	var click = -1;
-	var checked = false;
 	var correctSequence = [];
 	var playerSequence = [];
 	var blinkText;
