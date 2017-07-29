@@ -1,18 +1,18 @@
 /* jshint browser: true, esversion: 6 */
 /* global $ */
 
-$(document).ready(function () {
+$(document).ready(() => {
 	const $count = $('.count');
 	const $cBtn = $('.colorBtn');
-	var powerOn = false;
-	var strictOn = false;
-	var playerTurn = false;
-	var checked = false;
-	var round = 0;
-	var click = -1;
-	var correctSequence = [];
-	var playerSequence = [];
-	var blinkText;
+	let powerOn = false;
+	let strictOn = false;
+	let playerTurn = false;
+	let checked = false;
+	let round = 0;
+	let click = -1;
+	let correctSequence = [];
+	let playerSequence = [];
+	let blinkText;
 	/*Sound Array (below) includes all game SFX.
 	0: Game Start
 	1,2,3,4: Lights
@@ -21,44 +21,45 @@ $(document).ready(function () {
 	7: Game Won
 	8: Level Up
 	*/
-	var soundArr = [new Audio('https://a.clyp.it/0i5alwhh.mp3'),
-    new Audio('https://a.clyp.it/kkua01bd.mp3'),
-    new Audio('https://a.clyp.it/bv3lfflv.mp3'),
-    new Audio('https://a.clyp.it/sknd4aru.mp3'),
-    new Audio('https://a.clyp.it/2jqmx1j3.mp3'),
-    new Audio('https://a.clyp.it/qwns04zo.mp3'),
-    new Audio('https://a.clyp.it/1ssyaqql.mp3'),
-    new Audio('https://a.clyp.it/lbrad43v.mp3'),
-    new Audio('https://a.clyp.it/cmtr2vrv.mp3')
-  ];
+	const soundArr = [new Audio('https://a.clyp.it/0i5alwhh.mp3'),
+							new Audio('https://a.clyp.it/kkua01bd.mp3'),
+							new Audio('https://a.clyp.it/bv3lfflv.mp3'),
+							new Audio('https://a.clyp.it/sknd4aru.mp3'),
+							new Audio('https://a.clyp.it/2jqmx1j3.mp3'),
+							new Audio('https://a.clyp.it/qwns04zo.mp3'),
+							new Audio('https://a.clyp.it/1ssyaqql.mp3'),
+							new Audio('https://a.clyp.it/lbrad43v.mp3'),
+							new Audio('https://a.clyp.it/cmtr2vrv.mp3')
+						];
 
 	//Power Switch
-	$('.powerSwitch').click(function () {
+	$('.powerSwitch').click(() => {
 		clearInterval(blinkText);
-		return !powerOn ? gameOn() : gameOff();
+		return powerOn ? gameOff() : gameOn();
 	});
 
 	//Start Button
-	$('#startBtn').click(function () {
+	$('#startBtn').click(() => {
 		clearInterval(blinkText);
 		if (powerOn) startGame();
 	});
 
 	//Strict Button
-	$('#strictBtn').click(function () {
-		//If game isn't running, start a new game
-		if (powerOn && !strictOn) {
-			$('.strictLight').css({
-				background: 'yellow'
-			});
-			strictOn = true;
-		} else if (powerOn) {
-			$('.strictLight').css({
-				background: 'black'
-			});
-			strictOn = false;
+	$('#strictBtn').click(() => {
+		//Toggle Strict mode
+		if (powerOn) {
+			if (!strictOn) {
+				$('.strictLight').css({
+					background: 'yellow'
+				});
+				strictOn = true;
+			} else {
+				$('.strictLight').css({
+					background: 'black'
+				});
+				strictOn = false;
+			}
 		}
-
 	});
 
 	//Turn off the game unit
@@ -70,7 +71,7 @@ $(document).ready(function () {
 		checked = false;
 		click = -1;
 		round = 0;
-		$count.html('');
+		$count.empty();
 		$('.powerSwitch').css({
 			left: '5%'
 		});
@@ -133,13 +134,13 @@ $(document).ready(function () {
 
 	//Turn on a specific light and play sound
 	function lightOn(lightNum, index) {
-		setTimeout(function () {
+		setTimeout(() => {
 			$('#' + lightNum).addClass('litUp');
 			soundArr[lightNum].play();
 		}, 200 + (800 * index));
 
 		//Turn off button light
-		setTimeout(function () {
+		setTimeout(() => {
 			$('#' + lightNum).removeClass('litUp');
 		}, (800 * index) + 800);
 
@@ -190,14 +191,10 @@ $(document).ready(function () {
 		else if (playerTurn && (playerSequence.length === correctSequence.length) && (playerSequence.join('') === correctSequence.join(''))) {
 			//...and not in the final round, advance
 			if (correctSequence.length < 20) {
-				setTimeout(function () {
-					soundArr[8].play();
-				}, 200);
+				setTimeout(() => soundArr[8].play(), 200);
 				playerTurn = false;
 				playerSequence = [];
-				setTimeout(function () {
-					generateLight();
-				}, 800);
+				setTimeout(() => generateLight(), 800);
 				checked = true;
 			}
 			//If Round 20 is complete, we have a winner!
@@ -213,9 +210,7 @@ $(document).ready(function () {
 		$count.html('!!');
 		soundArr[5].play();
 		navigator.vibrate(500);
-		setTimeout(function () {
-			lightShow(0);
-		}, 1000);
+		setTimeout(() => lightShow(0), 1000);
 	}
 
 	//Update counter
@@ -230,8 +225,8 @@ $(document).ready(function () {
 		resetPlayer();
 		correctSequence = [];
 		soundArr[6].play();
-		blinkText = setInterval(function () {
-			if ($count.html() === 'XX') $count.html('');
+		blinkText = setInterval(() => {
+			if ($count.html() === 'XX') $count.empty();
 			else($count.html('XX'));
 		}, 400);
 	}
@@ -242,8 +237,8 @@ $(document).ready(function () {
 		resetPlayer();
 		correctSequence = [];
 		soundArr[7].play();
-		blinkText = setInterval(function () {
-			if ($count.html() === ':)') $count.html('');
+		blinkText = setInterval(() => {
+			if ($count.html() === ':)') $count.empty();
 			else($count.html(':)'));
 		}, 400);
 	}
@@ -256,9 +251,7 @@ $(document).ready(function () {
 
 	//Stop all audio from playing
 	function stopAudio() {
-		soundArr.forEach(function (x) {
-			x.pause();
-		});
+		soundArr.forEach(s => s.pause());
 	}
 
 });
