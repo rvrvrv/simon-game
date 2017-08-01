@@ -15,8 +15,6 @@ html {
 	user-select: none;
 	outline: none !important;
 	/*border: 1px solid silver !important;*/
-	-webkit-transition: all 0.1s ease;
-	transition: all 0.1s ease;
 }
 
 div {
@@ -30,25 +28,6 @@ body {
 	text-align: center;
 }
 
-h1 {
-	font-size: 2.5em;
-	margin: 22px 0px 0px 12px;
-}
-
-.smallTxt {
-	font-size: .6em;
-	vertical-align: 10px;
-}
-
-.label {
-	position: absolute;
-	top: 52%;
-	left: 42%;
-	font-family: 'Righteous', Arial;
-	font-size: .95em;
-	color: #333;
-}
-
 .game {
 	position: relative;
 	height: 500px;
@@ -57,6 +36,28 @@ h1 {
 	background: #333;
 	margin: 20px auto;
 	box-shadow: 0 0 15px #555;
+}
+
+.controls {
+	position: absolute;
+	height: 275px;
+	width: 275px;
+	background: #CCC;
+	border: 18px solid #333;
+	border-radius: 100%;
+	top: 22.5%;
+	left: 22.5%;
+	z-index: 10;
+}
+
+h1 {
+	font-size: 2.5em;
+	margin: 22px 0px 0px 12px;
+}
+
+.smallTxt {
+	font-size: .6em;
+	vertical-align: 10px;
 }
 
 .count {
@@ -99,7 +100,7 @@ h1 {
 }
 
 #strictBtn {
-	background-color: yellow;
+	background: #FF0;
 	left: 74%;
 	top: 40%;
 }
@@ -115,22 +116,19 @@ h1 {
 	top: 44%;
 	height: 12px;
 	width: 12px;
-	background: black;
+	background: #000;
 	border: 1px solid #333;
 	border-radius: 100%;
 	box-shadow: outset 0 0 5px #555;
 }
 
-.controls {
+.label {
 	position: absolute;
-	height: 275px;
-	width: 275px;
-	background: #CCC;
-	border: 18px solid #333;
-	border-radius: 100%;
-	top: 22.5%;
-	left: 22.5%;
-	z-index: 10;
+	top: 52%;
+	left: 42%;
+	font-family: 'Righteous', Arial;
+	font-size: .95em;
+	color: #333;
 }
 
 .powerSwitchSlot {
@@ -139,9 +137,7 @@ h1 {
 	bottom: 15%;
 	width: 50px;
 	height: 25px;
-	background-color: #111;
-	background-image: url('https://i.imgsafe.org/5871b3e056.jpg');
-	background-size: cover;
+	background: #111;
 	border-radius: 10%;
 	color: #E00;
 	padding-left: 2px;
@@ -156,10 +152,9 @@ h1 {
 	left: 5%;
 	width: 20px;
 	height: 20px;
-	background-color: #AAA;
-	background-image: url('https://i.imgsafe.org/58775649ad.jpg');
-	background-size: cover;
+	background: #AAA;
 	border-radius: 10%;
+	transition: left .1s ease-out;
 }
 
 .powerSwitch:hover {
@@ -190,96 +185,66 @@ h1 {
 
 .greenBtn {
 	border-top-left-radius: 100%;
-	background: #32CC52;
-	background: -webkit-linear-gradient(bottom right, #32CC52, #060);
-	background: linear-gradient(to top left, #32CC52, #060);
+	background: #32CC52 linear-gradient(to top left, #32CC52, #060);
 }
 
 .greenBtn:active {
-	background: -webkit-linear-gradient(bottom right, #32CC52, #040);
 	background: linear-gradient(to top left, #32CC52, #040);
 }
 
 .greenBtn.litUp {
-	background: #00F;
-	background: -webkit-linear-gradient(top right, #32CC52, #0F0);
-	background: linear-gradient(to bottom left, #32CC52, #0F0);
+	background: #0F0 linear-gradient(to bottom left, #32CC52, #0F0);
 }
 
 .redBtn {
 	border-top-right-radius: 100%;
-	right: 0px;
-	background: #E33400;
-	background: -webkit-linear-gradient(bottom left, #E33400, #600);
-	background: linear-gradient(to top right, #E33400, #600);
+	right: 0;
+	background: #E33400 linear-gradient(to top right, #E33400, #600);
 }
 
 .redBtn:active {
-	background: -webkit-linear-gradient(bottom left, #E33400, #400);
 	background: linear-gradient(to top right, #E33400, #400);
 }
 
 .redBtn.litUp {
-	background: #00F;
-	background: -webkit-linear-gradient(top right, #E33400, #F00);
-	background: linear-gradient(to bottom left, #E33400, #F00);
+	background: #F00 linear-gradient(to bottom left, #E33400, #F00);
 }
 
 .blueBtn {
 	border-bottom-right-radius: 100%;
-	right: 0px;
-	bottom: 0px;
-	background: #3083DF;
-	background: -webkit-linear-gradient(top left, #3283DF, #006);
-	background: linear-gradient(to bottom right, #3283DF, #006);
+	right: 0;
+	bottom: 0;
+	background: #3083DF linear-gradient(to bottom right, #3283DF, #006);
 }
 
 .blueBtn:active {
-	background: -webkit-linear-gradient(top left, #3083DF, #004);
 	background: linear-gradient(to bottom right, #3083DF, #004);
 }
 
 .blueBtn.litUp {
-	background: #00F;
-	background: -webkit-linear-gradient(top right, #2222DD, #00E);
-	background: linear-gradient(to bottom left, #2222DD, #00E);
+	background: #00F linear-gradient(to bottom left, #2222DD, #00E);
 }
 
 .yellowBtn {
 	border-bottom-left-radius: 100%;
-	bottom: 0px;
-	background: #EAD82E;
-	background: -webkit-linear-gradient(top right, #EAD82E, #660);
-	background: linear-gradient(to bottom left, #EAD82E, #660);
+	bottom: 0;
+	background: #EAD82E linear-gradient(to bottom left, #EAD82E, #660);
 }
 
 .yellowBtn:active {
-	background: -webkit-linear-gradient(top right, #EAD82E, #440);
 	background: linear-gradient(to bottom left, #EAD82E, #440);
 }
 
 .yellowBtn.litUp {
-	background: #FF0;
-	background: -webkit-linear-gradient(top right, #EAD82E, #FF0);
-	background: linear-gradient(to bottom left, #EAD82E, #FF0);
+	background: #FF0 linear-gradient(to bottom left, #EAD82E, #FF0);
 }
 
 
 /*For mobile devices*/
 
-@media only screen and (orientation: portrait) and (max-device-width: 700px) {
-    .game {
-        position: absolute;
-        left: auto;
-        right: auto;
-    }
-}
-
-@media only screen and (orientation: landscape) and (max-device-width: 700px) {
-    .game {
-		 -webkit-transform: scale(0.8);
-		 transform: scale(0.8);
-		 margin-top: -20vh;
-
-    }
+@media only screen and (max-device-width: 768px) {
+	.game {
+		-webkit-transform: scale(0.7);
+		transform: scale(0.7);
+	}
 }
