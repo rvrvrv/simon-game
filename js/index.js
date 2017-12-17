@@ -230,24 +230,20 @@ $(document).ready(() => {
     }
   });
 
-  /* DURING PLAYER'S TURN: */
-
   // When button pressed down, light it and add to player sequence */
   $cBtn.mousedown((e) => {
-    if (playerTurn && !($('.btn-color').hasClass('lit'))) {
-      $(this).addClass('lit');
-      soundArr[+e.target.id].play();
-    }
-  });
-  // When button released, turn off light
-  $cBtn.mouseup((e) => {
     if (playerTurn) {
-      e.target.removeClass('lit');
+      e.target.classList.add('lit');
+      soundArr[e.target.id].play();
     }
   });
+
+  // When button released, turn off light
+  $cBtn.mouseup(() => $('.lit').removeClass('lit'));
+
   // When button is clicked, check sequence
   $cBtn.click((e) => {
-    if (playerTurn && !($('.btn-color').hasClass('lit')) && !checked) {
+    if (playerTurn && !($cBtn.hasClass('lit')) && !checked) {
       click++;
       playerSequence[click] = +e.target.id;
       checkSequence();
