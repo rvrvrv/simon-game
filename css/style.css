@@ -19,7 +19,7 @@ div {
 body {
 	background: black;
 	font-family: 'Righteous', Arial;
-	font-size: 2em;
+	font-size: 20px;
 	text-align: center;
 }
 
@@ -29,51 +29,55 @@ body {
 	width: 500px;
 	border-radius: 100%;
 	background: #333;
-	margin: 20px auto;
+	margin: 1em auto;
 	box-shadow: 0 0 15px #555;
 }
 
-.controls {
+.game *:not(.interface):not(h1) {
 	position: absolute;
-	height: 275px;
-	width: 275px;
+}
+
+.controls {
+	height: 55%;
+	width: 55%;
+	top: 22.5%;
+	left: 22.5%;
 	background: #CCC;
 	border: 18px solid #333;
 	border-radius: 100%;
-	top: 22.5%;
-	left: 22.5%;
-	z-index: 10;
+	z-index: 1;
 }
 
 h1 {
 	font-size: 2.5em;
-	margin: 22px 0px 0px 12px;
+	margin: .65em 0 0 .1em;
 }
 
 .text-small {
 	font-size: .6em;
-	vertical-align: 10px;
+	vertical-align: .3em;
 }
 
 .count {
-	position: absolute;
-	left: 5%;
-	top: 39%;
-	width: 80px;
-	height: 50px;
+	left: 4%;
+	top: 40%;
+	width: 2.3em;
+	height: 1.4em;
+	padding-left: .1em;
 	background-color: #2B0000;
-	border-radius: 10%;
 	border: 2px inset #200;
+	border-radius: 10%;
 	color: #C00;
 	font-family: 'Press Start 2P', monospace;
 	font-size: 1.75em;
-	line-height: 1.6em;
+	line-height: 1.52em;
+	text-align: center;
 }
 
 .btn-ctrl {
-	position: absolute;
-	height: 30px;
-	width: 30px;
+	top: 43.75%;
+	height: 12.5%;
+	width: 12.5%;
 	border: 3px solid #333;
 	border-radius: 100%;
 	box-shadow: inset 0 0 5px #555;
@@ -85,32 +89,29 @@ h1 {
 
 #startBtn {
 	background-color: red;
-	left: 44%;
-	top: 40%;
+	left: 43.75%;
 }
 
 #startBtn:active {
-	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, .6);
 	background: firebrick;
 }
 
 #strictBtn {
 	background: #FF0;
-	left: 74%;
-	top: 40%;
+	right: 9.5%;
 }
 
 #strictBtn:active {
-	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, .6);
 	background: #DBC800;
 }
 
 .light-strict {
-	position: absolute;
-	left: 90%;
-	top: 44%;
-	height: 12px;
-	width: 12px;
+	right: 2.5%;
+	top: 48%;
+	height: 5%;
+	width: 5%;
 	background: #000;
 	border: 1px solid #333;
 	border-radius: 100%;
@@ -118,8 +119,7 @@ h1 {
 }
 
 .label {
-	position: absolute;
-	top: 52%;
+	top: 55%;
 	left: 42%;
 	font-family: 'Righteous', Arial;
 	font-size: .95em;
@@ -127,11 +127,10 @@ h1 {
 }
 
 .switch-pwr-slot {
-	position: absolute;
 	left: 40%;
 	bottom: 15%;
-	width: 50px;
-	height: 25px;
+	width: 20%;
+	height: 10%;
 	background: #111;
 	border-radius: 10%;
 	color: #E00;
@@ -142,11 +141,10 @@ h1 {
 }
 
 .switch-pwr {
-	position: absolute;
-	top: 10%;
+	top: 11%;
 	left: 5%;
-	width: 20px;
-	height: 20px;
+	width: 40%;
+	height: 80%;
 	background: #AAA;
 	border-radius: 10%;
 	transition: left .1s ease-out;
@@ -157,16 +155,14 @@ h1 {
 }
 
 .label-pwr {
-	position: absolute;
 	bottom: 6%;
 	left: 45%;
-	font-size: 0.8em;
+	font-size: .8em;
 }
 
 .btn-color {
-	position: absolute;
-	height: 250px;
-	width: 250px;
+	height: 50%;
+	width: 50%;
 	border: 12px solid #333;
 }
 
@@ -175,7 +171,7 @@ h1 {
 }
 
 .btn-color:active {
-	box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.6);
+	box-shadow: inset 0 1px 5px rgba(0, 0, 0, .6);
 }
 
 .btn-grn {
@@ -234,11 +230,8 @@ h1 {
 	background: #FF0 linear-gradient(to bottom left, #EAD82E, #FF0);
 }
 
-/* For mobile devices */
-
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 500px) {
 	.game {
-		-webkit-transform: scale(0.7);
-		transform: scale(0.7);
+		transform: scale(.7);
 	}
 }
