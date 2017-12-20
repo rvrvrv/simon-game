@@ -6,31 +6,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Simon Game</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous|Press+Start+2P">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-	<div class="main">
-		<div class="game">
-			<div class="controls">
-				<h1>Simon<span class="text-small">®</span></h1>
-				<div class="row interface">
-					<div class="count"></div>
-					<div class="btn-ctrl" id="startBtn">&nbsp;</div>
-					<div class="btn-ctrl" id="strictBtn">&nbsp;</div>
-					<div class="light-strict">&nbsp;</div>
+	<div class="game">
+		<div class="btn-color btn-grn" id="1"></div>
+		<div class="btn-color btn-red" id="2"></div>
+		<div class="btn-color btn-blue" id="3"></div>
+		<div class="btn-color btn-ylw" id="4"></div>
+		<div class="controls">
+			<h1>Simon<span class="txt-small">®</span></h1>
+			<div class="interface">
+				<div class="count"></div>
+				<div class="btn-ctrl btn-start" id="startBtn"></div>
+				<div class="strict-inner">
+					<div class="btn-ctrl btn-strict" id="strictBtn"></div>
+					<div class="light-strict"></div>
 				</div>
-				<div class="row label">Start&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strict</div>
-				<div class="container switch-pwr-slot">
+			</div>
+			<div class="row-labels">
+				<div class="label"></div>
+				<div class="label">Start</div>
+				<div class="label">Strict</div>
+			</div>
+				<div class="switch-pwr-slot">
 					<div class="switch-pwr"></div>
 				</div>
-				<div class="row label-pwr">Off-On</div>
+				<div class="label-pwr">Off-On</div>
 			</div>
-			<div class="btn-color btn-grn" id="1"></div>
-			<div class="btn-color btn-red" id="2"></div>
-			<div class="btn-color btn-blue" id="3"></div>
-			<div class="btn-color btn-ylw" id="4"></div>
 		</div>
 	</div>
 </body>
