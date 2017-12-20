@@ -1,51 +1,43 @@
 html {
 	box-sizing: border-box;
+	overflow: hidden;
 }
 
 *,
 *:before,
 *:after {
 	box-sizing: inherit;
-	overflow: hidden;
-	cursor: default !important;
-	outline: none !important;
 	user-select: none;
 }
 
-div {
-	white-space: nowrap;
-}
-
 body {
-	background: black;
-	font-family: 'Righteous', Arial;
-	font-size: 20px;
+	background: #000;
+	color: #333;
+	font: 3.1vw 'Righteous', Arial;
 	text-align: center;
 }
 
 .game {
 	position: relative;
-	height: 500px;
-	width: 500px;
+	width: 95vw;
+	height: 95vw;
+	min-width: 400px;
+	min-height: 400px;
 	border-radius: 100%;
-	background: #333;
+	background: #222;
 	margin: 1em auto;
 	box-shadow: 0 0 15px #555;
 }
 
-.game *:not(.interface):not(h1) {
-	position: absolute;
-}
-
 .controls {
-	height: 55%;
+	position: absolute;
 	width: 55%;
-	top: 22.5%;
+	height: 55%;
 	left: 22.5%;
+	top: 22.5%;
 	background: #CCC;
 	border: 18px solid #333;
 	border-radius: 100%;
-	z-index: 1;
 }
 
 h1 {
@@ -53,121 +45,124 @@ h1 {
 	margin: .65em 0 0 .1em;
 }
 
-.text-small {
+.txt-small {
 	font-size: .6em;
-	vertical-align: .3em;
+	font-weight: 200;
+	vertical-align: .5em;
+}
+
+.interface, .strict-inner, .row-labels {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.interface {
+	padding: 1.5em .3em 0 .6em;
+}
+
+.row-labels {
+	margin-top: -.2em;
+	padding: 0 .8em 0 3.5em;
 }
 
 .count {
-	left: 4%;
-	top: 40%;
 	width: 2.3em;
 	height: 1.4em;
-	padding-left: .1em;
-	background-color: #2B0000;
+	background-color: #2b0000;
 	border: 2px inset #200;
 	border-radius: 10%;
 	color: #C00;
-	font-family: 'Press Start 2P', monospace;
-	font-size: 1.75em;
+	font: 1.75em 'Press Start 2P', monospace;
 	line-height: 1.52em;
-	text-align: center;
 }
 
 .btn-ctrl {
-	top: 43.75%;
-	height: 12.5%;
-	width: 12.5%;
+	height: 2em;
+	width: 2em;
 	border: 3px solid #333;
 	border-radius: 100%;
 	box-shadow: inset 0 0 5px #555;
 }
 
 .btn-ctrl:hover {
-	cursor: pointer !important;
+	cursor: pointer;
 }
 
-#startBtn {
-	background-color: red;
-	left: 43.75%;
+.btn-start {
+	background-color: #f00;
+	margin-left: -1.4em;
 }
 
-#startBtn:active {
+.btn-start:active {
 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, .6);
-	background: firebrick;
+	background: #db0000
 }
 
-#strictBtn {
-	background: #FF0;
-	right: 9.5%;
+.btn-strict {
+	background: #ff0;
 }
 
-#strictBtn:active {
+.btn-strict:active {
 	box-shadow: inset 0 1px 3px rgba(0, 0, 0, .6);
-	background: #DBC800;
+	background: #dbc800;
 }
 
 .light-strict {
-	right: 2.5%;
-	top: 48%;
-	height: 5%;
-	width: 5%;
+	height: .6em;
+	width: .6em;
 	background: #000;
 	border: 1px solid #333;
 	border-radius: 100%;
 	box-shadow: outset 0 0 5px #555;
+	margin: .3em 0 0 .2em;
 }
 
 .label {
-	top: 55%;
-	left: 42%;
-	font-family: 'Righteous', Arial;
 	font-size: .95em;
 	color: #333;
 }
 
 .switch-pwr-slot {
-	left: 40%;
-	bottom: 15%;
-	width: 20%;
-	height: 10%;
+	width: 2em;
+	height: 1em;
+	margin: 15% auto 0 auto;
 	background: #111;
 	border-radius: 10%;
 	color: #E00;
-	padding-left: 2px;
+	padding: .1em 0 0 .1em;
 	font-family: 'Press Start 2P', monospace;
 	font-size: 1.8em;
 	line-height: 1.6em;
 }
 
 .switch-pwr {
-	top: 11%;
-	left: 5%;
-	width: 40%;
-	height: 80%;
-	background: #AAA;
+	width: 42%;
+	height: 90%;
+	background: #999;
 	border-radius: 10%;
-	transition: left .1s ease-out;
+	margin-left: 0;
+	transition: margin-left .1s ease-out;
 }
 
 .switch-pwr:hover {
-	cursor: pointer !important;
+	cursor: pointer;
 }
 
 .label-pwr {
-	bottom: 6%;
-	left: 45%;
 	font-size: .8em;
 }
 
 .btn-color {
+	position: absolute;
 	height: 50%;
 	width: 50%;
-	border: 12px solid #333;
+	border: 8px solid #333;
 }
 
 .btn-color:hover {
-	cursor: pointer !important;
+	cursor: pointer;
 }
 
 .btn-color:active {
@@ -175,6 +170,7 @@ h1 {
 }
 
 .btn-grn {
+	top: 0;
 	border-top-left-radius: 100%;
 	background: #32CC52 linear-gradient(to top left, #32CC52, #060);
 }
@@ -188,8 +184,9 @@ h1 {
 }
 
 .btn-red {
-	border-top-right-radius: 100%;
 	right: 0;
+	top: 0;
+	border-top-right-radius: 100%;
 	background: #E33400 linear-gradient(to top right, #E33400, #600);
 }
 
@@ -202,9 +199,9 @@ h1 {
 }
 
 .btn-blue {
-	border-bottom-right-radius: 100%;
 	right: 0;
 	bottom: 0;
+	border-bottom-right-radius: 100%;
 	background: #3083DF linear-gradient(to bottom right, #3283DF, #006);
 }
 
@@ -217,8 +214,8 @@ h1 {
 }
 
 .btn-ylw {
-	border-bottom-left-radius: 100%;
 	bottom: 0;
+	border-bottom-left-radius: 100%;
 	background: #EAD82E linear-gradient(to bottom left, #EAD82E, #660);
 }
 

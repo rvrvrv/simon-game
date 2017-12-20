@@ -78,14 +78,14 @@ $(document).ready(() => {
     click = -1;
     round = 0;
     $count.empty();
-    $('.switch-pwr').css({ left: '5%' });
+    $('.switch-pwr').css({ marginLeft: '0' });
     $('.light-strict').css({ background: 'black' });
     stopAudio();
   }
 
   // Turn on the game unit
   function gameOn() {
-    $('.switch-pwr').css({ left: '55%' });
+    $('.switch-pwr').css({ marginLeft: '53%' });
     powerOn = true;
     $count.html('--');
     soundArr[0].play();
