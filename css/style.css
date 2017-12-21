@@ -113,7 +113,7 @@ h1 {
 	background: #000;
 	border: 1px solid #333;
 	border-radius: 100%;
-	box-shadow: outset 0 0 5px #555;
+	box-shadow: 0 0 5px #555 inset;
 	margin: .3em 0 0 .2em;
 }
 
@@ -126,10 +126,9 @@ h1 {
 	width: 2em;
 	height: 1em;
 	margin: 6vmin auto 0 auto;
-	background: #111;
+	background: #151515;
 	border-radius: 10%;
-	color: #E00;
-	padding: .1em 0 0 .1em;
+	padding: 1% 0 0 1.1%;
 	font-family: 'Press Start 2P', monospace;
 	font-size: 1.8em;
 	line-height: 1.6em;
@@ -138,9 +137,16 @@ h1 {
 .switch-pwr {
 	width: 42%;
 	height: 90%;
-	background: #999;
+	background:
+		linear-gradient(27deg, #bbb 5px, transparent 5px) 0 5px,
+		linear-gradient(207deg, #bbb 5px, transparent 5px) 10px 0px,
+		linear-gradient(27deg, #aaa 5px, transparent 5px) 0px 10px,
+		linear-gradient(207deg, #aaa 5px, transparent 5px) 10px 5px,
+		linear-gradient(90deg, #bbb 10px, transparent 10px),
+		linear-gradient(#ccc 25%, #bbb 25%, #bbb 50%, transparent 50%, transparent 75%, #ccc 75%, #ccc);
+	background-color: #ccc;
+	background-size: 10px 10px;
 	border-radius: 10%;
-	margin-left: 0;
 	transition: margin-left .1s ease-out;
 }
 
@@ -240,5 +246,6 @@ h1 {
 	}
 	.switch-pwr-slot {
 		margin: 3vmin auto 0 auto;
+		padding: .5% 0 0 1%;
 	}
 }
