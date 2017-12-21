@@ -13,16 +13,14 @@ html {
 body {
 	background: #000;
 	color: #333;
-	font: 3.1vw 'Righteous', Arial;
+	font: 3.1vmin 'Righteous', Arial;
 	text-align: center;
 }
 
 .game {
 	position: relative;
-	width: 95vw;
-	height: 95vw;
-	min-width: 400px;
-	min-height: 400px;
+	width: 95vmin;
+	height: 95vmin;
 	border-radius: 100%;
 	background: #222;
 	margin: 1em auto;
@@ -127,7 +125,7 @@ h1 {
 .switch-pwr-slot {
 	width: 2em;
 	height: 1em;
-	margin: 15% auto 0 auto;
+	margin: 6vmin auto 0 auto;
 	background: #111;
 	border-radius: 10%;
 	color: #E00;
@@ -227,8 +225,20 @@ h1 {
 	background: #FF0 linear-gradient(to bottom left, #EAD82E, #FF0);
 }
 
-@media only screen and (max-width: 500px) {
-	.game {
-		transform: scale(.7);
+@media (max-width: 475px), (max-height: 475px) {
+	body {
+		font-size: 3vmin;
+	}
+	.switch-pwr-slot {
+		margin: 4vmin auto 0 auto;
+	}
+}
+
+@media (max-width: 350px), (max-height: 350px) {
+	body {
+		font-size: 2.8vmin;
+	}
+	.switch-pwr-slot {
+		margin: 3vmin auto 0 auto;
 	}
 }
