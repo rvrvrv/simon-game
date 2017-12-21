@@ -70,17 +70,17 @@ $(document).ready(() => {
 
   // Turn off the game unit
   function gameOff() {
-    // Reset variables, turn off lights & sounds
+    // Turn off sounds & lights, reset vars
+    stopAudio();
+    $count.empty();
+    if (strictOn) $('#strictBtn').click();
+    $('.switch-pwr').css({ marginLeft: '0' });
     powerOn = false;
     strictOn = false;
     playerTurn = false;
     checked = false;
     click = -1;
     round = 0;
-    $count.empty();
-    $('.switch-pwr').css({ marginLeft: '0' });
-    $('.light-strict').css({ background: 'black' });
-    stopAudio();
   }
 
   // Turn on the game unit
@@ -204,12 +204,14 @@ $(document).ready(() => {
     if (powerOn) {
       if (!strictOn) {
         $('.light-strict').css({
-          background: 'yellow'
+          background: 'yellow',
+          boxShadow: '0 0 5px #555 inset, 0 0 10px #ff0'
         });
         strictOn = true;
       } else {
         $('.light-strict').css({
-          background: 'black'
+          background: 'black',
+          boxShadow: '0 0 5px #555 inset'
         });
         strictOn = false;
       }
