@@ -3,11 +3,8 @@ html {
 	overflow: hidden;
 }
 
-*,
-*:before,
-*:after {
+*, *:before, *:after {
 	box-sizing: inherit;
-	user-select: none;
 }
 
 body {
@@ -21,10 +18,11 @@ body {
 	position: relative;
 	width: 95vmin;
 	height: 95vmin;
+	margin: 1em auto;
 	border-radius: 100%;
 	background: #222;
-	margin: 1em auto;
 	box-shadow: 0 0 15px #555;
+	user-select: none;
 }
 
 .controls {
@@ -139,8 +137,8 @@ h1 {
 	height: 90%;
 	background:
 		linear-gradient(27deg, #bbb 5px, transparent 5px) 0 5px,
-		linear-gradient(207deg, #bbb 5px, transparent 5px) 10px 0px,
-		linear-gradient(27deg, #aaa 5px, transparent 5px) 0px 10px,
+		linear-gradient(207deg, #bbb 5px, transparent 5px) 10px 0,
+		linear-gradient(27deg, #aaa 5px, transparent 5px) 0 10px,
 		linear-gradient(207deg, #aaa 5px, transparent 5px) 10px 5px,
 		linear-gradient(90deg, #bbb 10px, transparent 10px),
 		linear-gradient(#ccc 25%, #bbb 25%, #bbb 50%, transparent 50%, transparent 75%, #ccc 75%, #ccc);
@@ -163,6 +161,7 @@ h1 {
 	height: 50%;
 	width: 50%;
 	border: 8px solid #333;
+	-webkit-tap-highlight-color: transparent;
 }
 
 .btn-color:hover {
